@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const errorMsg = data.error || 'Server encountered an unexpected error.';
         appendMessageBubble(
           'ai', 
-          `⚠️ **Error:** ${errorMsg}\n\n*Please verify that your GEMINI_API_KEY environment variable is set and restart the server.*`, 
+          `⚠️ **Error:** ${errorMsg}`, 
           true
         );
       }
