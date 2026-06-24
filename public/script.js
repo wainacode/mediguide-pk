@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // === SUGGESTION CHIPS ===
   // Common preset medication questions in Pakistan representing English, Urdu, and Roman Urdu inputs.
   const suggestions = [
-    { label: '💊 Panadol Dosage', query: 'Panadol aur Calpol ka dosage guidelines kya hain?' },
-    { label: '🧪 Flagyl Uses', query: 'Flagyl kis bimari ke liye aur kis tarah istemal hoti hai?' },
-    { label: '⚠️ Brufen & Aspirin', query: 'Can I take Brufen and Aspirin together? Kya inka koi interaction hai?' },
-    { label: '🧬 Risek Timing', query: 'Risek capsule kab aur kaise khana chahiye? Khaali pet ya khaane ke baad?' },
-    { label: '🦷 Ponstan Usage', query: 'Ponstan goli toothache ya dard ke liye kaise lein?' },
-    { label: '🦠 Augmentin Side Effects', query: 'Augmentin antibiotic ke kya side effects hain aur isay kab lena chahiye?' }
+    { label: 'Panadol Dosage', query: 'Panadol aur Calpol ka dosage guidelines kya hain?' },
+    { label: 'Flagyl Uses', query: 'Flagyl kis bimari ke liye aur kis tarah istemal hoti hai?' },
+    { label: 'Brufen & Aspirin', query: 'Can I take Brufen and Aspirin together? Kya inka koi interaction hai?' },
+    { label: 'Risek Timing', query: 'Risek capsule kab aur kaise khana chahiye? Khaali pet ya khaane ke baad?' },
+    { label: 'Ponstan Usage', query: 'Ponstan goli toothache ya dard ke liye kaise lein?' },
+    { label: 'Augmentin Side Effects', query: 'Augmentin antibiotic ke kya side effects hain aur isay kab lena chahiye?' }
   ];
 
   // === MARKDOWN CONFIGURATION ===
