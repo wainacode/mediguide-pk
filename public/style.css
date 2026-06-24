@@ -1,41 +1,44 @@
 /* ==========================================================================
-   MediGuide Pakistan - Premium Glassmorphic Design System
-   Color Palette: Apple Health meets Modern Pakistani Health Startup
+   MediGuide Pakistan - Futuristic Dark Glass Design System
+   Color Palette: Deep navy void + glowing cyan/teal accents
    ========================================================================== */
 
 :root {
   /* Design System Color Tokens */
-  --primary-cyan: #0097A7;       /* Cyan/Teal (Theme Main) */
-  --secondary-cyan: #00BCD4;     /* Bright Cyan (Glows & Highlights) */
-  --dark-teal: #006064;          /* Deep Teal (Background & Headers) */
-  --light-cyan: #E0F7FA;         /* Very Light Cyan (Card backgrounds) */
-  --accent-cyan: #80DEEA;        /* Soft Turquoise (Borders & Icons) */
+  --void: #050810;
+  --bg-deep: #0A1322;
+  --bg-deep-2: #0D1B2E;
+  --primary-cyan: #22D3EE;
+  --secondary-cyan: #67E8F9;
+  --dark-teal: #0E7490;
+  --light-cyan: #A5F3FC;
+  --accent-cyan: #2DD4BF;
   --white: #FFFFFF;
-  --silver-light: #F5F7F8;
-  --danger-bg: #FFF5F5;
-  --danger-border: #FEB2B2;
-  --danger-text: #C53030;
-  
+  --silver-light: #0F1B2E;
+  --danger-bg: rgba(255, 90, 90, 0.08);
+  --danger-border: rgba(255, 110, 110, 0.4);
+  --danger-text: #FF8A8A;
+
   /* Text Colors */
-  --text-dark: #00282C;          /* High contrast dark teal for readability */
-  --text-muted: #4B6B70;         /* Soft teal-gray for secondary text */
+  --text-dark: #E7F6FA;
+  --text-muted: #7E9FAE;
   --text-light: #FFFFFF;
-  
+
   /* Glassmorphism Details */
-  --glass-bg: rgba(255, 255, 255, 0.45);
-  --glass-border: rgba(255, 255, 255, 0.25);
-  --glass-card-bg: rgba(255, 255, 255, 0.7);
-  --glass-card-border: rgba(255, 255, 255, 0.45);
-  
+  --glass-bg: rgba(10, 18, 32, 0.55);
+  --glass-border: rgba(34, 211, 238, 0.22);
+  --glass-card-bg: rgba(13, 23, 38, 0.65);
+  --glass-card-border: rgba(103, 232, 249, 0.18);
+
   /* Font Face stacks */
   --font-english: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-urdu: 'Noto Nastaliq Urdu', 'Poppins', serif;
-  
+
   /* Shadows and Transitions */
-  --shadow-sm: 0 2px 8px rgba(0, 96, 100, 0.08);
-  --shadow-md: 0 8px 24px rgba(0, 96, 100, 0.12);
-  --shadow-lg: 0 16px 40px rgba(0, 60, 68, 0.25);
-  --shadow-glow: 0 0 15px rgba(0, 188, 212, 0.4);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 22px rgba(34, 211, 238, 0.45);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -50,7 +53,10 @@
 
 body {
   font-family: var(--font-english);
-  background: linear-gradient(135deg, var(--dark-teal) 0%, var(--primary-cyan) 60%, var(--secondary-cyan) 100%);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(45, 212, 191, 0.08) 0%, transparent 50%),
+    linear-gradient(160deg, var(--void) 0%, var(--bg-deep) 55%, var(--bg-deep-2) 100%);
   color: var(--text-dark);
   height: 100vh;
   display: flex;
@@ -60,7 +66,7 @@ body {
   position: relative;
 }
 
-/* Overlaying a subtle medical cross pattern in the background */
+/* Subtle moving grid/dot pattern */
 body::before {
   content: '';
   position: absolute;
@@ -68,15 +74,16 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(rgba(128, 222, 234, 0.08) 1.5px, transparent 1.5px),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 25v30M25 40h30' stroke='rgba(128, 222, 234, 0.035)' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image:
+    radial-gradient(rgba(103, 232, 249, 0.07) 1.5px, transparent 1.5px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 25v30M25 40h30' stroke='rgba(103, 232, 249, 0.05)' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 28px 28px, 80px 80px;
   pointer-events: none;
   z-index: 2;
 }
 
 /* ==========================================================================
-   Floating Background Decorations (Particles & Heartbeat)
+   Floating Background Decorations (Glow Orbs, Icons & Heartbeat)
    ========================================================================== */
 .background-decorations {
   position: fixed;
@@ -91,72 +98,88 @@ body::before {
 
 .particle {
   position: absolute;
-  color: rgba(128, 222, 234, 0.25);
-  font-weight: bold;
+  color: rgba(103, 232, 249, 0.3);
   pointer-events: none;
   user-select: none;
 }
 
-/* Glass bubbles */
+/* Glow orbs */
 .bubble-1 {
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(224, 247, 250, 0.25) 0%, rgba(128, 222, 234, 0.05) 75%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.18) 0%, transparent 75%);
   border-radius: 50%;
+  filter: blur(10px);
   left: 5%;
   top: 15%;
   animation: floatSlow 25s infinite ease-in-out;
 }
 
 .bubble-2 {
-  width: 90px;
-  height: 90px;
-  background: radial-gradient(circle, rgba(224, 247, 250, 0.2) 0%, rgba(128, 222, 234, 0.03) 75%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.16) 0%, transparent 75%);
   border-radius: 50%;
+  filter: blur(8px);
   right: 8%;
   bottom: 12%;
   animation: floatSlow 18s infinite ease-in-out reverse;
 }
 
 .bubble-3 {
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(224, 247, 250, 0.15) 0%, rgba(128, 222, 234, 0.02) 75%);
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.10) 0%, transparent 75%);
   border-radius: 50%;
+  filter: blur(14px);
   right: 15%;
   top: 8%;
   animation: floatSlow 32s infinite ease-in-out;
 }
 
-/* Floating medical emojis and icons */
+/* Floating SVG icon particles (replace old emojis) */
+.pill-1, .pill-2 {
+  width: 38px;
+  height: 38px;
+  opacity: 0.3;
+}
 .pill-1 {
-  font-size: 2.2rem;
   left: 12%;
   bottom: 25%;
-  filter: grayscale(20%) opacity(35%);
   animation: floatRotate 22s infinite ease-in-out;
 }
-
 .pill-2 {
-  font-size: 1.8rem;
+  width: 30px;
+  height: 30px;
   right: 25%;
   top: 25%;
-  filter: grayscale(20%) opacity(25%);
+  opacity: 0.22;
   animation: floatRotate 28s infinite ease-in-out reverse;
 }
 
+.cross-1, .cross-2 {
+  width: 26px;
+  height: 26px;
+  opacity: 0.28;
+}
 .cross-1 {
-  font-size: 2rem;
   left: 45%;
   top: 8%;
   animation: floatSlow 15s infinite ease-in-out;
 }
-
 .cross-2 {
-  font-size: 1.5rem;
+  width: 20px;
+  height: 20px;
   right: 5%;
   top: 50%;
+  opacity: 0.2;
   animation: floatSlow 20s infinite ease-in-out reverse;
+}
+
+.particle svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Heartbeat ECG Line */
@@ -166,7 +189,8 @@ body::before {
   left: 5%;
   width: 250px;
   height: 60px;
-  opacity: 0.35;
+  opacity: 0.45;
+  filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.5));
 }
 
 .heartbeat-line svg {
@@ -198,15 +222,15 @@ body::before {
 }
 
 /* ==========================================================================
-   App Container (Glassmorphism Core)
+   App Container (Dark Glass Core + Signature Scan Line)
    ========================================================================== */
 .app-container {
   width: 100%;
   max-width: 900px;
   height: 100vh;
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
   border: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
@@ -214,14 +238,33 @@ body::before {
   z-index: 5;
   box-shadow: var(--shadow-lg);
   transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+/* Signature moving accent: a soft light sweeping across the top edge */
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--secondary-cyan), transparent);
+  z-index: 20;
+  animation: scanSweep 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanSweep {
+  0% { left: -50%; }
+  100% { left: 100%; }
 }
 
 @media (min-width: 768px) {
   .app-container {
     height: 88vh;
     border-radius: 24px;
-    overflow: hidden;
-    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border: 1.5px solid rgba(103, 232, 249, 0.22);
   }
 }
 
@@ -229,13 +272,13 @@ body::before {
    Header Layout
    ========================================================================== */
 .app-header {
-  background: linear-gradient(90deg, var(--dark-teal) 0%, var(--primary-cyan) 100%);
+  background: linear-gradient(90deg, var(--bg-deep-2) 0%, var(--bg-deep) 100%);
   color: var(--text-light);
   padding: 16px 24px;
-  box-shadow: 0 4px 20px rgba(0, 96, 100, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 10;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1.5px solid rgba(34, 211, 238, 0.15);
 }
 
 .header-content {
@@ -253,21 +296,21 @@ body::before {
 .logo-circle {
   width: 46px;
   height: 46px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 14px; /* Squircle logo design */
+  background: rgba(34, 211, 238, 0.1);
+  border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(103, 232, 249, 0.3);
   backdrop-filter: blur(5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   transform: rotate(-5deg);
   transition: var(--transition-smooth);
 }
 
 .logo-circle:hover {
   transform: rotate(0deg) scale(1.05);
-  border-color: var(--white);
+  border-color: var(--secondary-cyan);
   box-shadow: var(--shadow-glow);
 }
 
@@ -275,42 +318,44 @@ body::before {
   width: 28px;
   height: 28px;
   transform: rotate(-10deg);
+  color: var(--secondary-cyan);
 }
 
 .title-area h1 {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  color: var(--text-light);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.4);
 }
 
 .title-area .subtitle {
   font-size: 0.95rem;
   font-family: var(--font-urdu);
-  color: var(--accent-cyan);
+  color: var(--light-cyan);
   margin-top: -2px;
   letter-spacing: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  opacity: 0.85;
 }
 
 .status-indicator {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(34, 211, 238, 0.08);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.78rem;
   font-weight: 500;
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(103, 232, 249, 0.18);
   backdrop-filter: blur(5px);
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(231, 246, 250, 0.95);
 }
 
 .pulse-dot {
   width: 9px;
   height: 9px;
-  background-color: #00E676; /* Bright neon green */
+  background-color: #2DD4BF;
   border-radius: 50%;
   position: relative;
 }
@@ -323,7 +368,7 @@ body::before {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #00E676;
+  background-color: #2DD4BF;
   animation: beaconPulse 2s infinite ease-in-out;
 }
 
@@ -333,7 +378,7 @@ body::before {
 }
 
 /* ==========================================================================
-   Emergency Warning Banner (Safety First)
+   Emergency Warning Banner
    ========================================================================== */
 .emergency-banner {
   background-color: var(--danger-bg);
@@ -341,7 +386,6 @@ body::before {
   padding: 10px 24px;
   z-index: 8;
   animation: slideDownBanner 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .emergency-content {
@@ -353,9 +397,16 @@ body::before {
 }
 
 .warning-icon {
-  font-size: 1.3rem;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
+  color: var(--danger-text);
   animation: bounceAlert 1.5s infinite ease-in-out;
+}
+
+.warning-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .warning-text {
@@ -366,7 +417,7 @@ body::before {
 }
 
 .warning-text strong {
-  color: #9B2C2C;
+  color: #FFB3B3;
   font-weight: 700;
 }
 
@@ -377,7 +428,7 @@ body::before {
 
 @keyframes bounceAlert {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.18); }
+  50% { transform: scale(1.15); }
 }
 
 /* ==========================================================================
@@ -391,7 +442,6 @@ body::before {
   flex-direction: column;
 }
 
-/* Custom Scrollbar for modern aesthetics */
 .chat-workspace::-webkit-scrollbar {
   width: 6px;
 }
@@ -401,12 +451,12 @@ body::before {
 }
 
 .chat-workspace::-webkit-scrollbar-thumb {
-  background: rgba(0, 151, 167, 0.15);
+  background: rgba(34, 211, 238, 0.25);
   border-radius: 10px;
 }
 
 .chat-workspace::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 151, 167, 0.3);
+  background: rgba(34, 211, 238, 0.45);
 }
 
 /* ==========================================================================
@@ -429,8 +479,8 @@ body::before {
 
 .welcome-card {
   background: var(--glass-card-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   padding: 32px 28px;
   border-radius: 20px;
   border: 1.5px solid var(--glass-card-border);
@@ -438,28 +488,23 @@ body::before {
   text-align: center;
 }
 
-.welcome-header-icon {
-  font-size: 3.2rem;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 4px 6px rgba(0, 96, 100, 0.15));
-}
-
 .welcome-card h2 {
   font-size: 1.6rem;
-  color: var(--dark-teal);
+  color: var(--text-dark);
   margin-bottom: 12px;
   font-weight: 700;
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.25);
 }
 
 .welcome-desc {
   font-size: 0.95rem;
-  color: var(--text-dark);
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 28px;
 }
 
 .welcome-desc strong {
-  color: var(--primary-cyan);
+  color: var(--secondary-cyan);
 }
 
 .feature-grid {
@@ -475,29 +520,36 @@ body::before {
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(34, 211, 238, 0.04);
   padding: 18px 14px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(103, 232, 249, 0.12);
   transition: var(--transition-smooth);
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  background: var(--white);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--secondary-cyan);
 }
 
 .feat-icon {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 10px auto;
+  color: var(--secondary-cyan);
+}
+
+.feat-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .feature-card h3 {
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--dark-teal);
+  color: var(--text-dark);
   margin-bottom: 6px;
 }
 
@@ -507,11 +559,10 @@ body::before {
   line-height: 1.4;
 }
 
-/* Suggestion tag labels */
 .suggestion-section h3 {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--dark-teal);
+  color: var(--secondary-cyan);
   margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -526,26 +577,25 @@ body::before {
 }
 
 /* ==========================================================================
-   Suggestion Chips (Glow & Hover States)
+   Suggestion Chips
    ========================================================================== */
 .chip {
-  background: rgba(255, 255, 255, 0.75);
-  color: var(--dark-teal);
-  border: 1.5px solid var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.06);
+  color: var(--text-dark);
+  border: 1.5px solid rgba(103, 232, 249, 0.25);
   padding: 8px 18px;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition-smooth);
-  box-shadow: var(--shadow-sm);
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
 .chip:hover {
-  background: var(--primary-cyan);
+  background: linear-gradient(135deg, var(--dark-teal) 0%, var(--primary-cyan) 100%);
   color: var(--white);
   border-color: var(--primary-cyan);
   transform: translateY(-2.5px);
@@ -557,7 +607,7 @@ body::before {
 }
 
 /* ==========================================================================
-   Chat Messages & Bubbles (Gradient + Frosted Glass)
+   Chat Messages & Bubbles
    ========================================================================== */
 .chat-messages {
   display: flex;
@@ -595,12 +645,11 @@ body::before {
   word-wrap: break-word;
 }
 
-/* User Messages: Gradient with Glow */
 .message-wrapper.user .chat-bubble {
-  background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-cyan) 100%);
+  background: linear-gradient(135deg, var(--dark-teal) 0%, var(--primary-cyan) 100%);
   color: var(--white);
   border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.25);
+  box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -609,18 +658,16 @@ body::before {
   text-decoration: underline;
 }
 
-/* AI Messages: White Frosted Glass with Shadow */
 .message-wrapper.ai .chat-bubble {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: var(--glass-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-card-border);
   color: var(--text-dark);
   border-bottom-left-radius: 4px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Timestamp inside bubble */
 .bubble-meta {
   display: block;
   font-size: 0.68rem;
@@ -635,7 +682,7 @@ body::before {
 }
 
 /* ==========================================================================
-   Urdu Layout Settings (RTL & Line Height fixes)
+   Urdu Layout Settings
    ========================================================================== */
 .urdu-message {
   font-family: var(--font-urdu);
@@ -646,7 +693,6 @@ body::before {
   letter-spacing: -0.3px;
 }
 
-/* Fix spacing for mixed bullet lists inside Urdu messages */
 .urdu-message ul, .urdu-message ol {
   margin-left: 0;
   margin-right: 22px;
@@ -667,7 +713,11 @@ body::before {
 
 .chat-bubble strong {
   font-weight: 600;
-  color: var(--dark-teal);
+  color: var(--secondary-cyan);
+}
+
+.message-wrapper.user .chat-bubble strong {
+  color: var(--white);
 }
 
 .chat-bubble ul, .chat-bubble ol {
@@ -681,12 +731,12 @@ body::before {
 
 .chat-bubble hr {
   border: 0;
-  border-top: 1.5px solid rgba(0, 151, 167, 0.12);
+  border-top: 1.5px solid rgba(103, 232, 249, 0.15);
   margin: 12px 0;
 }
 
 /* ==========================================================================
-   Typing Indicator (Three Bouncing Dots Animation)
+   Typing Indicator
    ========================================================================== */
 .typing-indicator {
   display: flex;
@@ -700,14 +750,14 @@ body::before {
 }
 
 .typing-bubble {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: var(--glass-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-card-border);
   padding: 12px 20px;
   border-radius: 18px;
   border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -722,7 +772,7 @@ body::before {
 .typing-bubble .dot {
   width: 8px;
   height: 8px;
-  background-color: var(--primary-cyan);
+  background-color: var(--secondary-cyan);
   border-radius: 50%;
   display: inline-block;
   animation: dotBounce 1.4s infinite ease-in-out both;
@@ -746,9 +796,9 @@ body::before {
    Footer controls & Text inputs
    ========================================================================== */
 .app-footer {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(8, 14, 26, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-top: 1.5px solid var(--glass-border);
   padding: 12px 20px 10px 20px;
   display: flex;
@@ -758,7 +808,6 @@ body::before {
   z-index: 10;
 }
 
-/* Mini bottom chips during active chats */
 .mini-chips-wrapper {
   overflow-x: auto;
   padding: 2px 0 8px 0;
@@ -766,7 +815,7 @@ body::before {
 }
 
 .mini-chips-wrapper::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for clean app experience */
+  display: none;
 }
 
 .mini-chips {
@@ -782,7 +831,6 @@ body::before {
   flex-shrink: 0;
 }
 
-/* Form input container layout */
 .input-container {
   display: flex;
   width: 100%;
@@ -797,7 +845,7 @@ body::before {
 
 #user-input {
   flex: 1;
-  border: 1.5px solid rgba(0, 151, 167, 0.2);
+  border: 1.5px solid rgba(103, 232, 249, 0.2);
   border-radius: 30px;
   padding: 14px 22px;
   font-size: 0.95rem;
@@ -808,10 +856,14 @@ body::before {
   transition: var(--transition-smooth);
 }
 
+#user-input::placeholder {
+  color: var(--text-muted);
+}
+
 #user-input:focus {
   border-color: var(--secondary-cyan);
   box-shadow: var(--shadow-glow);
-  background: var(--white);
+  background: rgba(15, 27, 46, 0.95);
 }
 
 #send-btn {
@@ -826,7 +878,7 @@ body::before {
   align-items: center;
   cursor: pointer;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 10px rgba(0, 96, 100, 0.2);
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.3);
   flex-shrink: 0;
 }
 
@@ -845,18 +897,17 @@ body::before {
   margin-top: -1px;
 }
 
-/* Medical Disclaimer bar */
 .disclaimer-bar {
   text-align: center;
   font-size: 0.72rem;
   color: var(--text-muted);
   line-height: 1.4;
   padding-top: 6px;
-  border-top: 1px solid rgba(0, 151, 167, 0.08);
+  border-top: 1px solid rgba(103, 232, 249, 0.1);
 }
 
 .disclaimer-bar strong {
-  color: var(--primary-cyan);
+  color: var(--secondary-cyan);
   font-weight: 600;
 }
 
@@ -868,68 +919,22 @@ body::before {
 }
 
 @media (max-width: 580px) {
-  .app-header {
-    padding: 12px 16px;
-  }
-  .title-area h1 {
-    font-size: 1.1rem;
-  }
-  .title-area .subtitle {
-    font-size: 0.85rem;
-  }
-  .logo-circle {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-  }
-  .crescent-star {
-    width: 22px;
-    height: 22px;
-  }
-  .status-indicator {
-    padding: 4px 10px;
-    font-size: 0.7rem;
-  }
-  .emergency-banner {
-    padding: 8px 16px;
-  }
-  .warning-text {
-    font-size: 0.75rem;
-    line-height: 1.3;
-  }
-  .warning-icon {
-    font-size: 1.1rem;
-  }
-  .chat-workspace {
-    padding: 16px;
-  }
-  .welcome-card {
-    padding: 24px 16px;
-  }
-  .welcome-card h2 {
-    font-size: 1.35rem;
-  }
-  .welcome-desc {
-    font-size: 0.88rem;
-    margin-bottom: 20px;
-  }
-  .feature-card {
-    padding: 12px 10px;
-  }
-  .chat-bubble {
-    max-width: 88%;
-    padding: 12px 14px;
-    font-size: 0.9rem;
-  }
-  #user-input {
-    padding: 12px 18px;
-    font-size: 0.9rem;
-  }
-  #send-btn {
-    width: 42px;
-    height: 42px;
-  }
-  .background-decorations {
-    display: none; /* Hide floating particles on mobile for better rendering performance */
-  }
+  .app-header { padding: 12px 16px; }
+  .title-area h1 { font-size: 1.1rem; }
+  .title-area .subtitle { font-size: 0.85rem; }
+  .logo-circle { width: 38px; height: 38px; border-radius: 10px; }
+  .crescent-star { width: 22px; height: 22px; }
+  .status-indicator { padding: 4px 10px; font-size: 0.7rem; }
+  .emergency-banner { padding: 8px 16px; }
+  .warning-text { font-size: 0.75rem; line-height: 1.3; }
+  .warning-icon { width: 18px; height: 18px; }
+  .chat-workspace { padding: 16px; }
+  .welcome-card { padding: 24px 16px; }
+  .welcome-card h2 { font-size: 1.35rem; }
+  .welcome-desc { font-size: 0.88rem; margin-bottom: 20px; }
+  .feature-card { padding: 12px 10px; }
+  .chat-bubble { max-width: 88%; padding: 12px 14px; font-size: 0.9rem; }
+  #user-input { padding: 12px 18px; font-size: 0.9rem; }
+  #send-btn { width: 42px; height: 42px; }
+  .background-decorations { display: none; }
 }
