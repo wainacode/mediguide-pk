@@ -116,9 +116,10 @@ app.post('/api/chat', async (req, res) => {
       } catch (err) {
         lastError = err;
         console.warn(`Attempt ${attempt} failed: ${err.message}`);
+        const isTemporaryIssue = err.message && (err.message.includes('429') || err.message.includes('503'));
+        const waitTime = isTemporaryIssue ? 5000 : 1500;
         if (attempt < maxRetries) {
-          // Wait briefly before trying again (1.5 seconds)
-          await new Promise(resolve => setTimeout(resolve, 1500));
+          await new Promise(resolve => setTimeout(resolve, waitTime));
         }
       }
     }
@@ -136,9 +137,11 @@ app.post('/api/chat', async (req, res) => {
 
     // Send a secure, helpful, non-technical error message back to the frontend browser.
     // We do NOT expose full stack traces or system environment variables to the user.
-    return res.status(500).json({
-      error: 'Failed to generate medical guidance. Please verify that your Gemini API key is configured correctly in the .env file and that your server has internet access.'
-    });
+    const isRateLimitOrOverload = err.message && (err.message.includes('429') || err.message.includes('503'));
+    const userMessage = isRateLimitOrOverload
+      ? 'MediGuide is experiencing high demand right now. Please wait a few seconds and try sending your message again.'
+      : 'Failed to generate medical guidance. Please verify that your Gemini API key is configured correctly in the .env file and that your server has internet access.';
+    return res.status(500).json({ error: userMessage });
   }
 });
 
