@@ -938,3 +938,29 @@ body::before {
   #send-btn { width: 42px; height: 42px; }
   .background-decorations { display: none; }
 }
+.new-chat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1.5px solid rgba(103, 232, 249, 0.2);
+  border-radius: 50%;
+  color: var(--secondary-cyan);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.new-chat-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.new-chat-btn:hover {
+  background: rgba(34, 211, 238, 0.18);
+  border-color: var(--secondary-cyan);
+  transform: rotate(180deg);
+  box-shadow: var(--shadow-glow);
+}
