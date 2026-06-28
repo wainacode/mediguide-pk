@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,15 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body>
 
   <div class="background-decorations">
@@ -22,33 +26,34 @@
 
     <div class="particle pill-1">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-45 12 12)"/>
-        <line x1="9.5" y1="9.5" x2="14.5" y2="14.5"/>
+        <rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-45 12 12)" />
+        <line x1="9.5" y1="9.5" x2="14.5" y2="14.5" />
       </svg>
     </div>
     <div class="particle pill-2">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-45 12 12)"/>
-        <line x1="9.5" y1="9.5" x2="14.5" y2="14.5"/>
+        <rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-45 12 12)" />
+        <line x1="9.5" y1="9.5" x2="14.5" y2="14.5" />
       </svg>
     </div>
 
     <div class="particle cross-1">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="12" y1="4" x2="12" y2="20"/>
-        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="12" y1="4" x2="12" y2="20" />
+        <line x1="4" y1="12" x2="20" y2="12" />
       </svg>
     </div>
     <div class="particle cross-2">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="12" y1="4" x2="12" y2="20"/>
-        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="12" y1="4" x2="12" y2="20" />
+        <line x1="4" y1="12" x2="20" y2="12" />
       </svg>
     </div>
 
     <div class="particle heartbeat-line">
       <svg viewBox="0 0 100 30" preserveAspectRatio="none">
-        <path d="M0,15 L30,15 L33,5 L36,25 L39,12 L42,18 L45,15 L100,15" fill="none" stroke="rgba(103, 232, 249, 0.35)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M0,15 L30,15 L33,5 L36,25 L39,12 L42,18 L45,15 L100,15" fill="none" stroke="rgba(103, 232, 249, 0.35)"
+          stroke-width="2.5" stroke-linecap="round" />
       </svg>
     </div>
   </div>
@@ -59,10 +64,7 @@
       <div class="header-content">
         <div class="logo-area">
           <div class="logo-circle" aria-hidden="true">
-            <svg class="crescent-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 50 10 A 40 40 0 1 0 90 50 A 30 30 0 1 1 50 10 Z" fill="currentColor" />
-              <polygon points="65,30 68,38 76,38 70,43 72,51 65,46 58,51 60,43 54,38 62,38" fill="currentColor" />
-            </svg>
+            <img src="/logo.png" alt="MediGuide Pakistan Logo" class="logo-img" />
           </div>
           <div class="title-area">
             <h1>MediGuide Pakistan</h1>
@@ -78,8 +80,9 @@
 
           <!-- New Chat Button: clears saved history and starts fresh -->
           <button id="new-chat-btn" class="new-chat-btn" aria-label="Start new chat" title="Start New Chat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12a9 9 0 11-2.64-6.36M21 3v6h-6"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 12a9 9 0 11-2.64-6.36M21 3v6h-6" />
             </svg>
           </button>
         </div>
@@ -89,14 +92,16 @@
     <div class="emergency-banner" id="emergency-banner" role="alert">
       <div class="emergency-content">
         <span class="warning-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-            <line x1="12" y1="9" x2="12" y2="13"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
         </span>
         <span class="warning-text">
-          <strong>EMERGENCY:</strong> If you are experiencing chest pain, severe bleeding, or breathing difficulty, call <strong>Rescue 1122</strong> immediately.
+          <strong>EMERGENCY:</strong> If you are experiencing chest pain, severe bleeding, or breathing difficulty, call
+          <strong>Rescue 1122</strong> immediately.
         </span>
       </div>
     </div>
@@ -107,15 +112,16 @@
         <div class="welcome-card">
           <h2>Assalam-o-Alaikum! السلام علیکم</h2>
           <p class="welcome-desc">
-            Welcome to <strong>MediGuide Pakistan</strong>. I am your specialized AI pharmacy advisor. Ask me in <strong>English, Urdu, or Roman Urdu</strong> (e.g., *Panadol dosage guidelines?*) to:
+            Welcome to <strong>MediGuide Pakistan</strong>. I am your specialized AI pharmacy advisor. Ask me in
+            <strong>English, Urdu, or Roman Urdu</strong> (e.g., *Panadol dosage guidelines?*) to:
           </p>
 
           <div class="feature-grid">
             <div class="feature-card">
               <div class="feat-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-45 12 12)"/>
-                  <line x1="9.5" y1="9.5" x2="14.5" y2="14.5"/>
+                  <rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-45 12 12)" />
+                  <line x1="9.5" y1="9.5" x2="14.5" y2="14.5" />
                 </svg>
               </div>
               <h3>Prescriptions</h3>
@@ -123,11 +129,12 @@
             </div>
             <div class="feature-card">
               <div class="feat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="17 1 21 5 17 9"/>
-                  <path d="M3 11V9a4 4 0 014-4h14"/>
-                  <polyline points="7 23 3 19 7 15"/>
-                  <path d="M21 13v2a4 4 0 01-4 4H3"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="17 1 21 5 17 9" />
+                  <path d="M3 11V9a4 4 0 014-4h14" />
+                  <polyline points="7 23 3 19 7 15" />
+                  <path d="M21 13v2a4 4 0 01-4 4H3" />
                 </svg>
               </div>
               <h3>Interactions</h3>
@@ -135,10 +142,11 @@
             </div>
             <div class="feature-card">
               <div class="feat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-                  <line x1="12" y1="9" x2="12" y2="13"/>
-                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
               </div>
               <h3>Side Effects</h3>
@@ -175,16 +183,12 @@
 
       <div class="input-container">
         <form id="chat-form" class="chat-form">
-          <input
-            type="text"
-            id="user-input"
-            placeholder="Type your health question here... (English, Urdu, or Roman Urdu)"
-            autocomplete="off"
-            required
-            aria-label="Ask a medicine query"
-          />
+          <input type="text" id="user-input"
+            placeholder="Type your health question here... (English, Urdu, or Roman Urdu)" autocomplete="off" required
+            aria-label="Ask a medicine query" />
           <button type="submit" id="send-btn" aria-label="Send message">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
               <line x1="22" y1="2" x2="11" y2="13"></line>
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
@@ -194,7 +198,9 @@
 
       <div class="disclaimer-bar">
         <p>
-          <strong>Disclaimer:</strong> MediGuide Pakistan provides educational health information and is not a substitute for professional medical advice, diagnosis, or treatment. Consult a qualified healthcare professional for medical concerns.
+          <strong>Disclaimer:</strong> MediGuide Pakistan provides educational health information and is not a
+          substitute for professional medical advice, diagnosis, or treatment. Consult a qualified healthcare
+          professional for medical concerns.
         </p>
       </div>
     </footer>
@@ -202,4 +208,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
