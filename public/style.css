@@ -327,10 +327,10 @@ body::before {
 }
 
 .logo-circle {
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 3px;
+  padding: 5px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -338,7 +338,7 @@ body::before {
   border: 1.5px solid rgba(103, 232, 249, 0.4);
   box-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
   transition: var(--transition-smooth);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .logo-circle:hover {
@@ -1033,8 +1033,8 @@ body::before {
   }
 
   .logo-circle {
-    width: 65px;
-    height: 65px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
   }
 
