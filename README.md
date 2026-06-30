@@ -54,7 +54,7 @@ No app download or medical background is required.
 
 ## Architecture
 
-![MediGuide Pakistan Architecture](public/architecture.png)
+![MediGuide Pakistan Architecture](public/mediguide_architecture_diagram.png)
 
 The browser frontend (HTML, CSS, JavaScript) communicates with a Vercel serverless function running an Express backend (`server.js`), which in turn calls the Google Gemini API (`gemini-2.5-flash`) and returns the formatted response. Chat history is preserved in browser storage for session continuity.
 
