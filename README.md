@@ -1,177 +1,163 @@
-# MediGuide Pakistan (میڈی گائیڈ پاکستان) 🇵🇰
-### A Premium Web-Based AI Medication Guidance Web App for Pakistani Patients and Caregivers
+# MediGuide Pakistan (میڈی گائیڈ پاکستان)
 
-**MediGuide Pakistan** is an empathetic, friendly, and easy-to-understand web-based AI assistant designed specifically for patients, caregivers, and families in Pakistan. It is built using a secure **Node.js & Express.js** backend, the official **Google Gen AI SDK**, and a gorgeous mobile-first **Glassmorphism** frontend.
+### Know. Trust. Heal.
 
-This application is ready to run on your local computer or deploy to the internet for free on **Vercel** for your Kaggle Capstone Project.
+A free AI-powered medication guidance assistant for Pakistani patients and caregivers.
 
----
-
-## 🌟 Key Features
-
-1. **Bilingual Support (English & Urdu):** Understands and responds in the language you use (Urdu Script, English, Roman Urdu, or mixed "Urdish").
-2. **Urdu Text Optimization:** Automatically detects Urdu script and formats the text Right-to-Left (RTL) with beautiful spacing and fonts (Noto Nastaliq Urdu) so it is clear and readable.
-3. **Pakistani Brand Recognition:** Maps local brand names (like *Panadol, Calpol, Brufen, Ponstan, Flagyl, Augmentin, Risek, Arinac, Surbex-Z*) to their active generic ingredients and functions.
-4. **Premium UI/UX Aesthetics:** Features a dark-teal-to-cyan gradient background with subtle medical cross patterns, animated floating medical particles (pills and crosses), a heartbeat ECG line animation, and frosted glass (glassmorphism) layouts.
-5. **Automatic Retry Mechanism:** If the Google Gemini API has a temporary connection hiccup, the server automatically retries 3 times (with a 1.5-second delay) before returning an error, making the app highly reliable.
-6. **Safety & Compliance:** Features a prominent Rescue 1122 emergency banner and an educational medical disclaimer in the footer.
-7. **Secure Key Management:** All API requests are routed through a secure Express.js server, meaning your private Google Gemini API key is never exposed to the web browser.
+**Live App:** [mediguide-pk.vercel.app](https://mediguide-pk.vercel.app)
+**Built by:** Dr. Waayna Rauf, Doctor of Pharmacy, Pakistan
 
 ---
 
-## 🛠️ Step 1: Getting Ready (Prerequisites)
+## The Problem
 
-Before running the application, make sure you have:
-1. **Node.js** (Version 18 or higher) installed on your computer. Download the **LTS (Recommended)** version from [nodejs.org](https://nodejs.org/).
-2. **Google Gemini API Key**: You can get a free API key from [Google AI Studio](https://aistudio.google.com/). Write this key down in a safe place.
+Millions of Pakistani patients receive prescriptions they cannot fully understand. They are often unaware of what their medicines are for, when to take them, what side effects to expect, or how their medicines interact with one another. This gap in understanding contributes to incorrect medication use and, in many cases, patients abandoning treatment altogether.
+
+Two real cases motivated this project. In one, a patient was prescribed Levothyroxine and Magnesium to be taken together every morning, with no explanation that Magnesium interferes with Levothyroxine absorption when taken at the same time — rendering the treatment ineffective. In another, a patient stopped taking Orlistat without informing her doctor because she was never told that oily stools were an expected, manageable side effect.
+
+These are not isolated incidents. They reflect a broader, everyday gap between prescribing and understanding — one that directly affects treatment outcomes across Pakistan.
+
+## The Solution
+
+MediGuide Pakistan is a free, AI-powered medication guidance assistant that helps patients and caregivers:
+
+- Understand their prescriptions in plain language
+- Check interactions between medications
+- Learn about side effects before they occur
+- Get answers in English, Urdu, or Roman Urdu
+- Access reliable guidance at no cost, on any device, at any time
+
+No app download or medical background is required.
 
 ---
 
-## 🚀 Step 2: How to Run the App Locally (On Your Computer)
+## Key Features
 
-Follow these steps to run the application on your local machine:
+- **Bilingual support** — understands and responds in English, Urdu script, or Roman Urdu, including mixed "Urdish" input.
+- **Urdu text rendering** — automatically detects Urdu script and renders it right-to-left using the Noto Nastaliq Urdu font.
+- **Pakistani brand recognition** — maps common local brand names (Panadol, Calpol, Brufen, Ponstan, Flagyl, Augmentin, Risek, Arinac, Surbex-Z) to their active ingredients and clinical use.
+- **Automatic retry handling** — if the Gemini API encounters a temporary connection issue, the server retries up to three times before surfacing an error, improving reliability during conversation.
+- **Safety messaging** — a Rescue 1122 emergency banner and a persistent medical disclaimer are shown at all times.
+- **Secure key management** — all API calls are routed through the Express.js backend; the Gemini API key is never exposed to the browser.
 
-### 1. Open Terminal or PowerShell
-Navigate to the directory where your project files are located.
-* **On Windows (PowerShell):**
-  1. Open the Start menu, type `PowerShell`, and press Enter.
-  2. Navigate to your project folder:
-     ```powershell
-     cd d:\MediGuide-pk
-     ```
+---
 
-### 2. Install Project Dependencies
-Run this command to download and install the required code packages (like Express and Google Gen AI client):
+## Screenshots
+
+![MediGuide Pakistan Homepage](public/screenshot1.png)
+*The MediGuide Pakistan welcome screen, showing the emergency banner, bilingual interface, and quick-start suggestions.*
+
+![MediGuide Pakistan Chat Demo](public/screenshot2.png)
+*MediGuide Pakistan responding to a medication query, demonstrating language detection and clear, simple guidance.*
+
+---
+
+## Architecture
+
+![MediGuide Pakistan Architecture](public/architecture.png)
+
+The browser frontend (HTML, CSS, JavaScript) communicates with a Vercel serverless function running an Express backend (`server.js`), which in turn calls the Google Gemini API (`gemini-2.5-flash`) and returns the formatted response. Chat history is preserved in browser storage for session continuity.
+
+---
+
+## Course Concepts Demonstrated
+
+This project was built for the Google Kaggle 5-Day AI Agents Intensive Vibe Coding Capstone, and demonstrates the following course concepts:
+
+| Concept | How It's Demonstrated |
+|---|---|
+| **AI Agent** | Google Gemini API powers conversational responses, guided by a custom system instruction for medical guidance |
+| **Antigravity (Vibe Coding)** | The frontend, backend, and styling were built using Google Antigravity, by describing requirements in natural language |
+| **Deployability** | Deployed to production on Vercel and publicly accessible at no cost |
+| **Security** | API keys are stored in environment variables, never exposed client-side, and excluded from version control via `.gitignore` |
+
+---
+
+## Prerequisites
+
+- Node.js (v18 or higher) — [nodejs.org](https://nodejs.org)
+- A Google Gemini API key — [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+---
+
+## Running Locally
+
 ```bash
+# 1. Navigate to the project folder
+cd MediGuide-pk
+
+# 2. Install dependencies
 npm install
+
+# 3. Create your environment file
+cp .env.example .env
 ```
 
-### 3. Configure Your Secret API Key
-To protect your API key, you store it in a local configuration file named `.env`. This file is hidden and will not be shared publicly.
-1. Duplicate the `.env.example` template into a new file called `.env`:
-   * **PowerShell (Windows):**
-     ```powershell
-     Copy-Item .env.example .env
-     ```
-   * **Command Prompt (Windows):**
-     ```cmd
-     copy .env.example .env
-     ```
-2. Open the new `.env` file in any text editor (like Notepad).
-3. Replace the placeholder text with your actual Gemini API key:
-   ```env
-   GEMINI_API_KEY=AIzaSyYourActualKeyHere
-   PORT=3000
-   ```
-4. Save and close the file.
+Open `.env` and add your API key:
 
-### 4. Run the Server
-Start the Express server by typing:
+```
+GEMINI_API_KEY=your_actual_key_here
+PORT=3000
+```
+
 ```bash
+# 4. Start the server
 npm start
 ```
-You will see output stating:
-`🚀 MediGuide Pakistan Web App is running!`
-`🌐 Local URL: http://localhost:3000`
 
-### 5. Open in Web Browser
-Open your browser (Chrome, Edge, Safari) and go to `http://localhost:3000`. You can now chat with MediGuide Pakistan! To stop the local server at any time, press `Ctrl + C` in your terminal window.
+The app will be available at `http://localhost:3000`.
 
 ---
 
-## 🌍 Step 3: How to Deploy on Vercel for Free (Public Web Link)
+## Deployment (Vercel)
 
-Vercel is a hosting platform that lets you publish websites for free. Because we created a `vercel.json` file, Vercel will configure our Express serverless functions automatically!
+This project includes a `vercel.json` configuration for automatic serverless deployment.
 
-### 1. Upload Your Code to GitHub
-Vercel deploys websites directly from a GitHub repository.
-1. Create a free account on [GitHub](https://github.com/).
-2. Click **New** to create a new repository. Name it `mediguide-pakistan` and keep it public. Do **not** check "Add a README" or "Add .gitignore" since we already have them.
-3. Open your terminal in `d:\MediGuide-pk` and run these Git commands to upload your files:
-   ```bash
-   # 1. Initialize a Git repository in this folder
-   git init
-
-   # 2. Add all files to the upload list
-   git add .
-
-   # 3. Save these files with a commit message
-   git commit -m "Initial commit of MediGuide Pakistan"
-
-   # 4. Rename the default upload branch to main
-   git branch -M main
-
-   # 5. Connect your local folder to your GitHub repository
-   # (Replace with your actual GitHub username)
-   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/mediguide-pakistan.git
-
-   # 6. Upload the files to GitHub
-   git push -u origin main
-   ```
-   *(Note: The `.gitignore` file automatically blocks the `.env` file from uploading. This ensures your private Gemini API key is never exposed on GitHub).*
-
-### 2. Connect GitHub to Vercel
-1. Go to [Vercel](https://vercel.com/) and sign up using your **GitHub account**.
-2. On your Vercel Dashboard, click the **Add New...** button and select **Project**.
-3. You will see a list of your GitHub repositories. Find `mediguide-pakistan` and click **Import**.
-
-### 3. Add Environment Variables on Vercel (Critical Step)
-Before clicking Deploy, you must tell Vercel what your Gemini API key is.
-1. On the configuration page, scroll down to the **Environment Variables** section.
-2. In the **Key** field, type:
-   `GEMINI_API_KEY`
-3. In the **Value** field, paste your actual Google Gemini API key (starting with `AIzaSy...`).
-4. Click the **Add** button.
-
-### 4. Deploy!
-1. Click **Deploy**. Vercel will build and launch your application.
-2. After about 1–2 minutes, Vercel will show a "Congratulations!" screen and provide a public URL (e.g. `https://mediguide-pakistan.vercel.app`).
-3. Copy this link. You can open it on your phone, share it with patients, or include it in your Capstone Project submission!
+1. Push the repository to GitHub (the `.gitignore` file excludes `.env` automatically).
+2. Sign in to [Vercel](https://vercel.com) with GitHub and import the repository.
+3. Under **Environment Variables**, add `GEMINI_API_KEY` with your actual key.
+4. Click **Deploy**. Vercel will build and provide a public URL within a couple of minutes.
 
 ---
 
-## 🧪 Step 4: How to Test Your Application
+## Testing Checklist
 
-1. **Verify Responsive Layout (Mobile Emulation):**
-   * On your computer in Google Chrome, right-click anywhere and choose **Inspect** (or press `F12`).
-   * Click the **Toggle Device Toolbar** icon (looks like a phone/tablet) at the top-left of the inspect pane.
-   * Change the device size (e.g. iPhone SE, Pixel 5) and verify that the chat layout fits nicely, the input box stays stuck to the bottom, and the emergency banner wraps correctly.
-2. **Verify Language & Brand mapping:**
-   * **In English:** Ask `"Can you explain the side effects of Augmentin?"`. Verify it lists side effects in simple terms and names the active generics (Co-amoxiclav).
-   * **In Roman Urdu:** Ask `"Flagyl kab leni chahiye?"`. Verify it replies in Roman Urdu starting with `"Assalam-o-Alaikum"`.
-   * **In Urdu Script:** Ask `"کیا میں ہائی بلڈ پریشر میں لوپرین لے سکتا ہوں؟"`. Verify that the text renders from right to left (RTL) with beautiful Noto Nastaliq script spacing.
-3. **Verify API Retries & Graceful Failure:**
-   * Revoke your internet connection or stop the local server and try to send a message. Verify that the UI displays a clean red network connection error bubble rather than freezing or crashing.
+- Responsive layout verified on mobile and desktop viewports
+- English query tested (e.g. *"Can you explain the side effects of Augmentin?"*)
+- Roman Urdu query tested (e.g. *"Flagyl kab leni chahiye?"*)
+- Urdu script query tested, confirming correct right-to-left rendering
+- Emergency banner and disclaimer visible on all screen sizes
+- Graceful error handling confirmed when the API is unreachable
 
 ---
 
-## 🔍 Common Errors & How to Fix Them
+## Future Plans
 
-### 1. `❌ Error: GEMINI_API_KEY is not configured in .env file!`
-* **Why it happens:** The server launched locally but could not read your API key.
-* **How to fix:**
-  * Make sure your environment file is named exactly `.env` (it must not be `.env.txt` or `.env.example`).
-  * Verify the key is written as `GEMINI_API_KEY=your_key` (no spaces around the `=` sign).
-
-### 2. Vercel deployment gives a "404 Not Found" or "Server Error" on chats
-* **Why it happens:** The API key was not entered or was spelled incorrectly in Vercel settings.
-* **How to fix:**
-  * Go to your Vercel Dashboard, select your project, go to **Settings** > **Environment Variables**.
-  * Make sure the key name is exactly `GEMINI_API_KEY`.
-  * If you updated it, go to the **Deployments** tab, click the three dots on the latest deployment, and choose **Redeploy** to apply the new environment variables.
-
-### 3. Vercel deployment fails to build
-* **Why it happens:** Vercel couldn't locate `package.json` or `server.js` in the root folder.
-* **How to fix:**
-  * Ensure `vercel.json` is located in the main project folder next to `server.js` (not inside `public`).
+- Expanding the Pakistani medicine database with additional local brand names
+- A dedicated mobile app (iOS and Android)
+- Voice input support for low-literacy users
+- Integration with pharmacy locator services
+- Ongoing improvements based on real patient feedback
 
 ---
 
-## 📋 Kaggle Capstone Project Submission Checklist
-- [ ] Local server ran successfully on `http://localhost:3000`.
-- [ ] Code was pushed to GitHub (excluding the `.env` secret file).
-- [ ] Deployed live on Vercel with `GEMINI_API_KEY` configured in Vercel project settings.
-- [ ] Tested sending chats in English, Roman Urdu, and Urdu script.
-- [ ] Verified that the 1122 Emergency Banner and Medical Disclaimer appear prominently on both desktop and mobile screens.
-- [ ] Verified that the app has a premium, modern teal/cyan glassmorphic style.
-- [ ] Copied the Vercel URL and added it to your final Kaggle Capstone submission document.
+## Disclaimer
+
+MediGuide Pakistan provides educational health information and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical concerns. In emergencies, call **Rescue 1122** immediately.
+
+---
+
+## Kaggle Capstone Submission Checklist
+
+- [ ] Local server runs successfully on `http://localhost:3000`
+- [ ] Code pushed to GitHub (excluding `.env`)
+- [ ] Deployed live on Vercel with `GEMINI_API_KEY` configured
+- [ ] Verified chat in English, Roman Urdu, and Urdu script
+- [ ] Confirmed emergency banner and disclaimer display correctly on desktop and mobile
+- [ ] Vercel URL included in final Kaggle Capstone submission
+
+---
+
+**Built for the Google Kaggle 5-Day AI Agents: Intensive Vibe Coding Capstone Project — Agents for Good track.**
+
+**Technologies:** Google Antigravity · Google Gemini API · Node.js · Express.js · Vercel
