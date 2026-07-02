@@ -5,6 +5,7 @@
 A free AI-powered medication guidance assistant for Pakistani patients and caregivers.
 
 **Live App:** [mediguide-pk.vercel.app](https://mediguide-pk.vercel.app)
+**Demo Video:** [https://youtu.be/oaCMFvhOP8U]
 **Built by:** Dr. Waayna Rauf, Doctor of Pharmacy, Pakistan
 
 ---
